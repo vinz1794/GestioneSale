@@ -12,7 +12,7 @@ import it.thinkopen.gestioneSale.model.Prenotation;
 import lombok.Data;
 
 @Entity
-	public class User {
+	public class Utente {
 
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)

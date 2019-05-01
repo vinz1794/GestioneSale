@@ -1,16 +1,11 @@
 package it.thinkopen.gestioneSale.model;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-import it.thinkopen.gestioneSale.model.User;
-import lombok.Data;
 
 @Entity
 public class Prenotation {
@@ -19,15 +14,14 @@ public class Prenotation {
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
 	    
-	 
-	    private String name;
-	    private String start;
-	    private String end;
+
+	    private Date inizio;
+	    private Date fine;
 	    
 	    
 	 /*   @ManyToOne
 	    @JoinColumn(name = "owner_id")
-	    private User eventOwner;
+	    private Utente eventOwner;
 	    
 	    @ManyToOne
 	    @JoinColumn(name = "room_id")
@@ -41,35 +35,30 @@ public class Prenotation {
 			this.id = id;
 		}
 
-		public String getName() {
-			return name;
-		}
+	public Date getInizio() {
+		return inizio;
+	}
 
-		public void setName(String name) {
-			this.name = name;
-		}
+	public void setInizio(Date inizio) {
+		this.inizio = inizio;
+	}
 
-		public String getStart() {
-			return start;
-		}
+	public Date getFine() {
+		return fine;
+	}
 
-		public void setStart(String start) {
-			this.start = start;
-		}
+	public void setFine(Date fine) {
+		this.fine = fine;
+	}
 
-		public String getEnd() {
-			return end;
-		}
 
-		public void setEnd(String end) {
-			this.end = end;
-		}
 
-	/*	public User getEventOwner() {
+
+	/*	public Utente getEventOwner() {
 			return eventOwner;
 		}
 
-		public void setEventOwner(User eventOwner) {
+		public void setEventOwner(Utente eventOwner) {
 			this.eventOwner = eventOwner;
 		}
 
