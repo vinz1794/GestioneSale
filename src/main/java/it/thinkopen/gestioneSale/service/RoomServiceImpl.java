@@ -14,21 +14,22 @@ public class RoomServiceImpl implements RoomService{
 
     @Override
     public  Iterable<Room> getAll(Room room) {
-        return null;
+        return roomRepository.findAll();
     }
 
     @Override
     public  void delete(Room room) {
+      roomRepository.delete(room);
 
     }
 
     @Override
     public  Room save(Room room) {
-        return null;
+        return roomRepository.save(room);
     }
 
     @Override
     public Room update(Room room) {
-        return null;
+        return  roomRepository.save(room);
     }
 }

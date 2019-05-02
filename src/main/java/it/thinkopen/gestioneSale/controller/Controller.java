@@ -7,12 +7,15 @@ import it.thinkopen.gestioneSale.service.PrenotationServiceImpl;
 import it.thinkopen.gestioneSale.service.RoomServiceImpl;
 import it.thinkopen.gestioneSale.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 
 import javax.validation.Valid;
+import java.time.LocalDateTime;
+import java.util.Collection;
 
 @RestController
 public class Controller {
@@ -20,9 +23,9 @@ public class Controller {
     @Autowired
 	UserServiceImpl userServiceImpl;
 
-   /* @RequestMapping("/login")
-    Collection<Utent> verifyLogin() {
-    	return UtentCustomRepository.getUtentsByEmail("email", "password ");
+  /* @RequestMapping(value = "/login",method = RequestMethod.POST)
+   Collection<Utente> verifyLogin() {
+    	return Utente.getUtentsByEmail("email", "password ","username");
     }*/
 
     @RequestMapping(value = "/users", method = RequestMethod.POST)
@@ -78,6 +81,18 @@ public class Controller {
     	  
     	@Autowired
 	PrenotationServiceImpl prenotationServiceImpl;
+
+
+
+	@RequestMapping(value  = "/prenotations/{inizio}/{fine}",method = RequestMethod.GET)
+	public Collection<Prenotation> findByInizioFine(@PathVariable("inizio") String inizio, @PathVariable("fine")String fine){
+
+
+		LocalDateTime _inizio = LocalDateTime.parse(inizio);
+		LocalDateTime _fine = LocalDateTime.parse(fine);
+
+		return prenotationServiceImpl.findByStartBetweenEnd(_inizio,_fine);
+	}
     	    @RequestMapping(value = "/prenotations", method = RequestMethod.POST)
     	    Prenotation savePrenotation(@Valid Prenotation pr) {
     	   

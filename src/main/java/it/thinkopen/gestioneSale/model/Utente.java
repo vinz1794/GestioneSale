@@ -1,15 +1,10 @@
 package it.thinkopen.gestioneSale.model;
 
-import java.util.Collection;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-
-import it.thinkopen.gestioneSale.model.Prenotation;
-import lombok.Data;
+import java.util.Collection;
 
 @Entity
 	public class Utente {
@@ -18,11 +13,24 @@ import lombok.Data;
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
 
-	  
 
+	    private String username;
 	    private String email;
 	    private String password;
-	    
+
+
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
+
+
 	  /*  @OneToMany(mappedBy = "PrenotationsOwner")
 	    private Collection<Prenotation> ownedPrenotations;*/
 

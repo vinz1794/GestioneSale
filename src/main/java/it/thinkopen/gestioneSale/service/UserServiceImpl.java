@@ -23,21 +23,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Iterable getAll(Utente utente) {
-        return null;
+        return userRepository.findAll();
     }
 
     @Override
     public void delete(Utente utente) {
+        userRepository.delete(utente);
 
     }
 
     @Override
     public Utente save(Utente utente) {
-        return null;
+        return userRepository.save(utente);
     }
 
     @Override
     public Utente update(Utente utente) {
-        return null;
+        return userRepository.save(utente);
     }
 }

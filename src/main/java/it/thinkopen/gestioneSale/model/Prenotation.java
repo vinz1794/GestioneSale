@@ -1,11 +1,9 @@
 package it.thinkopen.gestioneSale.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Prenotation {
@@ -15,17 +13,17 @@ public class Prenotation {
 	    private Long id;
 	    
 
-	    private Date inizio;
-	    private Date fine;
+	    private LocalDateTime inizio;
+	    private LocalDateTime fine;
 	    
 	    
-	 /*   @ManyToOne
-	    @JoinColumn(name = "owner_id")
+	   @ManyToOne
+	    @JoinColumn(name = "utente_id")
 	    private Utente eventOwner;
 	    
 	    @ManyToOne
 	    @JoinColumn(name = "room_id")
-	    private Room eventRoom;*/
+	    private Room eventRoom;
 
 		public Long getId() {
 			return id;
@@ -35,19 +33,19 @@ public class Prenotation {
 			this.id = id;
 		}
 
-	public Date getInizio() {
+	public  LocalDateTime getInizio() {
 		return inizio;
 	}
 
-	public void setInizio(Date inizio) {
+	public void setInizio( LocalDateTime inizio) {
 		this.inizio = inizio;
 	}
 
-	public Date getFine() {
+	public  LocalDateTime getFine() {
 		return fine;
 	}
 
-	public void setFine(Date fine) {
+	public void setFine( LocalDateTime fine) {
 		this.fine = fine;
 	}
 
